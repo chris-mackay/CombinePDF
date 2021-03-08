@@ -5,8 +5,52 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CombinePDF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Combine PDF" 
+        Height="600" 
+        Width="600"
+        MinHeight="600"
+        MinWidth="600">
+    
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <ListBox 
+            Grid.Column="0" 
+            Grid.Row="1" 
+            Width="Auto" 
+            Height="400" 
+            Background="Azure" 
+            Margin="10">
+        </ListBox>
+        
+        <ListBox 
+            Grid.Column="1" 
+            Grid.Row="1" 
+            Width="Auto" 
+            Height="400" 
+            Background="Azure" 
+            Margin="10">
+        </ListBox>
+        
+        <StackPanel 
+            HorizontalAlignment="Right" 
+            Grid.Column="1" 
+            Grid.Row="2" 
+            Margin="8" 
+            Orientation="Horizontal">
+            
+            <Button MinWidth="93" MinHeight="25">OK</Button>
+            <Button MinWidth="93" MinHeight="25" Margin="10,0,0,0">Cancel</Button>
+            
+        </StackPanel>
         
     </Grid>
 </Window>

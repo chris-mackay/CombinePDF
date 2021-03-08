@@ -1,0 +1,15 @@
+C:\Programming\CombinePDF\CombinePDF\bin\x64\Debug\CombinePDF.exe.config
+C:\Programming\CombinePDF\CombinePDF\bin\x64\Debug\CombinePDF.exe
+C:\Programming\CombinePDF\CombinePDF\bin\x64\Debug\CombinePDF.pdb
+C:\Programming\CombinePDF\CombinePDF\obj\x64\Debug\CombinePDF.csprojAssemblyReference.cache
+C:\Programming\CombinePDF\CombinePDF\obj\x64\Debug\MainWindow.g.cs
+C:\Programming\CombinePDF\CombinePDF\obj\x64\Debug\App.g.cs
+C:\Programming\CombinePDF\CombinePDF\obj\x64\Debug\CombinePDF_MarkupCompile.cache
+C:\Programming\CombinePDF\CombinePDF\obj\x64\Debug\CombinePDF_MarkupCompile.lref
+C:\Programming\CombinePDF\CombinePDF\obj\x64\Debug\MainWindow.baml
+C:\Programming\CombinePDF\CombinePDF\obj\x64\Debug\CombinePDF.g.resources
+C:\Programming\CombinePDF\CombinePDF\obj\x64\Debug\CombinePDF.Properties.Resources.resources
+C:\Programming\CombinePDF\CombinePDF\obj\x64\Debug\CombinePDF.csproj.GenerateResource.cache
+C:\Programming\CombinePDF\CombinePDF\obj\x64\Debug\CombinePDF.csproj.CoreCompileInputs.cache
+C:\Programming\CombinePDF\CombinePDF\obj\x64\Debug\CombinePDF.exe
+C:\Programming\CombinePDF\CombinePDF\obj\x64\Debug\CombinePDF.pdb

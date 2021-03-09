@@ -9,46 +9,113 @@
         Height="600" 
         Width="600"
         MinHeight="600"
-        MinWidth="600">
+        MinWidth="600"
+        FontFamily="Microsoft Sans Serif"
+        FontSize="8.25 pt"
+        FontStyle="Normal">
     
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <ListBox 
-            Grid.Column="0" 
+        <StackPanel
+            Orientation="Horizontal"
+            HorizontalAlignment="Left"
+            Grid.Column="1"
+            Grid.Row="0"
+            Margin="0,20,0,20">
+
+            <Label 
+                HorizontalAlignment="Left"
+                VerticalAlignment="Bottom"
+                Margin="10,0,0,0">File Directory
+            </Label>
+            
+            <TextBox
+                HorizontalAlignment="Left"
+                VerticalAlignment="Bottom"
+                Width="380"
+                MaxHeight="20"
+                MinHeight="20"
+                Margin="3,3,3,3"
+                FontFamily="Microsoft Sans Serif"
+                FontSize="8.25 pt"
+                TextAlignment="Left"
+                VerticalContentAlignment="Center"
+                >
+            </TextBox>
+
+            <Button 
+                HorizontalAlignment="Stretch"
+                MinWidth="93" 
+                MinHeight="25" 
+                Margin="10,10,0,0"
+                >Browse...
+            </Button>
+
+        </StackPanel>
+
+        <StackPanel
+            HorizontalAlignment="Left" 
             Grid.Row="1" 
-            Width="Auto" 
-            Height="400" 
-            Background="Azure" 
-            Margin="10">
-        </ListBox>
+            Margin="8" 
+            Orientation="Horizontal">
+
+            <Button 
+                MinWidth="93" 
+                MinHeight="25" 
+                MaxHeight="25" 
+                Margin="5,0,0,0"
+                >Move Up
+            </Button>
+            
+            <Button 
+                MinWidth="93" 
+                MinHeight="25" 
+                MaxHeight="25" 
+                Margin="10,0,0,0"
+                >Move Down
+            </Button>
+        </StackPanel>
         
-        <ListBox 
-            Grid.Column="1" 
-            Grid.Row="1" 
+        <ListBox
+            Name="FilesToCombine"
+            Grid.Row="2" 
             Width="Auto" 
-            Height="400" 
-            Background="Azure" 
-            Margin="10">
+            VerticalAlignment="Stretch"
+            Background="White" 
+            Margin="10,0,10,0"
+            BorderThickness="1">
         </ListBox>
         
         <StackPanel 
             HorizontalAlignment="Right" 
-            Grid.Column="1" 
-            Grid.Row="2" 
-            Margin="8" 
+            Grid.Row="3" 
+            Margin="10,10,10,10" 
             Orientation="Horizontal">
             
-            <Button MinWidth="93" MinHeight="25">OK</Button>
-            <Button MinWidth="93" MinHeight="25" Margin="10,0,0,0">Cancel</Button>
+            <Button 
+                MinWidth="93" 
+                MinHeight="25" 
+                MaxHeight="25"
+                Margin="0,0,10,0"
+                VerticalAlignment="Bottom"
+                >Combine
+            </Button>
+            
+            <Button 
+                MinWidth="93" 
+                MinHeight="25" 
+                MaxHeight="25" 
+                VerticalAlignment="Bottom"
+                >Close
+            </Button>
             
         </StackPanel>
         

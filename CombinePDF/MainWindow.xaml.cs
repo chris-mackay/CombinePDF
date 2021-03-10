@@ -24,5 +24,45 @@ namespace CombinePDF
         {
             InitializeComponent();
         }
+
+        private void btnAddFile_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnRemoveFile_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnBrowse_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnMoveUp_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnMoveDown_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnCombine_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void txtFileDirectory_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

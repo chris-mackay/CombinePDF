@@ -99,8 +99,10 @@ namespace CombinePDF
             // 
             this.txtDirectory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtDirectory.Enabled = false;
             this.txtDirectory.Location = new System.Drawing.Point(83, 65);
             this.txtDirectory.Name = "txtDirectory";
+            this.txtDirectory.ReadOnly = true;
             this.txtDirectory.Size = new System.Drawing.Size(358, 20);
             this.txtDirectory.TabIndex = 1;
             this.txtDirectory.TextChanged += new System.EventHandler(this.txtDirectory_TextChanged);
@@ -136,6 +138,7 @@ namespace CombinePDF
             this.btnAddFile.TabIndex = 5;
             this.btnAddFile.Text = "Add File";
             this.btnAddFile.UseVisualStyleBackColor = true;
+            this.btnAddFile.Click += new System.EventHandler(this.btnAddFile_Click);
             // 
             // btnRemoveFile
             // 
@@ -145,6 +148,7 @@ namespace CombinePDF
             this.btnRemoveFile.TabIndex = 6;
             this.btnRemoveFile.Text = "Remove File";
             this.btnRemoveFile.UseVisualStyleBackColor = true;
+            this.btnRemoveFile.Click += new System.EventHandler(this.btnRemoveFile_Click);
             // 
             // lblDescription
             // 

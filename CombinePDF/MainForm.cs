@@ -19,7 +19,14 @@ namespace CombinePDF
             txtDirectory.Text = dir;
             txtDirectory.Select(dir.Length + 1, 0);
 
-            ckbDefault.Checked = DrawingDirectoryIsDefault(dir);
+            bool isChecked = DrawingDirectoryIsDefault(dir);
+            ckbDefault.Checked = isChecked;
+
+            if (isChecked)
+            {
+                // Load all PDF files in directory
+
+            }
         }
 
         private void btnBrowse_Click(object sender, EventArgs e)
@@ -31,6 +38,9 @@ namespace CombinePDF
             if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
             {
                 txtDirectory.Text = dialog.FileName;
+
+                // Load all PDF files in the directory
+
             }
         }
 
@@ -84,6 +94,23 @@ namespace CombinePDF
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void btnAddFile_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Title = "Select a file to add";
+            ofd.InitialDirectory = XMLSettings.GetSettingsValue(XMLSettings.ApplicationSettings.DefaultDirectory);
+
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                lstFiles.Items.Add(ofd.FileName);
+            }
+        }
+
+        private void btnRemoveFile_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -41,23 +41,25 @@ namespace CombinePDF
             this.btnRemoveFile = new System.Windows.Forms.Button();
             this.lblDescription = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.ckbDefault = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // btnClose
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnClose.Location = new System.Drawing.Point(447, 476);
+            this.btnClose.Location = new System.Drawing.Point(447, 576);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
             this.btnClose.TabIndex = 11;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnCombine
             // 
             this.btnCombine.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCombine.Location = new System.Drawing.Point(366, 476);
+            this.btnCombine.Location = new System.Drawing.Point(366, 576);
             this.btnCombine.Name = "btnCombine";
             this.btnCombine.Size = new System.Drawing.Size(75, 23);
             this.btnCombine.TabIndex = 10;
@@ -67,7 +69,7 @@ namespace CombinePDF
             // btnMoveUp
             // 
             this.btnMoveUp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnMoveUp.Location = new System.Drawing.Point(12, 476);
+            this.btnMoveUp.Location = new System.Drawing.Point(12, 576);
             this.btnMoveUp.Name = "btnMoveUp";
             this.btnMoveUp.Size = new System.Drawing.Size(75, 23);
             this.btnMoveUp.TabIndex = 8;
@@ -77,7 +79,7 @@ namespace CombinePDF
             // btnMoveDown
             // 
             this.btnMoveDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnMoveDown.Location = new System.Drawing.Point(93, 476);
+            this.btnMoveDown.Location = new System.Drawing.Point(93, 576);
             this.btnMoveDown.Name = "btnMoveDown";
             this.btnMoveDown.Size = new System.Drawing.Size(75, 23);
             this.btnMoveDown.TabIndex = 9;
@@ -87,7 +89,7 @@ namespace CombinePDF
             // lblFileDirectory
             // 
             this.lblFileDirectory.AutoSize = true;
-            this.lblFileDirectory.Location = new System.Drawing.Point(9, 42);
+            this.lblFileDirectory.Location = new System.Drawing.Point(9, 73);
             this.lblFileDirectory.Name = "lblFileDirectory";
             this.lblFileDirectory.Size = new System.Drawing.Size(68, 13);
             this.lblFileDirectory.TabIndex = 0;
@@ -97,15 +99,16 @@ namespace CombinePDF
             // 
             this.txtDirectory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDirectory.Location = new System.Drawing.Point(83, 34);
+            this.txtDirectory.Location = new System.Drawing.Point(83, 65);
             this.txtDirectory.Name = "txtDirectory";
             this.txtDirectory.Size = new System.Drawing.Size(358, 20);
             this.txtDirectory.TabIndex = 1;
+            this.txtDirectory.TextChanged += new System.EventHandler(this.txtDirectory_TextChanged);
             // 
             // btnBrowse
             // 
             this.btnBrowse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBrowse.Location = new System.Drawing.Point(447, 32);
+            this.btnBrowse.Location = new System.Drawing.Point(447, 63);
             this.btnBrowse.Name = "btnBrowse";
             this.btnBrowse.Size = new System.Drawing.Size(75, 23);
             this.btnBrowse.TabIndex = 2;
@@ -119,15 +122,15 @@ namespace CombinePDF
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lstFiles.FormattingEnabled = true;
-            this.lstFiles.Location = new System.Drawing.Point(12, 159);
+            this.lstFiles.Location = new System.Drawing.Point(12, 185);
             this.lstFiles.Name = "lstFiles";
-            this.lstFiles.Size = new System.Drawing.Size(510, 303);
+            this.lstFiles.Size = new System.Drawing.Size(510, 368);
             this.lstFiles.TabIndex = 7;
             // 
             // btnAddFile
             // 
             this.btnAddFile.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnAddFile.Location = new System.Drawing.Point(12, 130);
+            this.btnAddFile.Location = new System.Drawing.Point(12, 156);
             this.btnAddFile.Name = "btnAddFile";
             this.btnAddFile.Size = new System.Drawing.Size(75, 23);
             this.btnAddFile.TabIndex = 5;
@@ -136,7 +139,7 @@ namespace CombinePDF
             // 
             // btnRemoveFile
             // 
-            this.btnRemoveFile.Location = new System.Drawing.Point(93, 130);
+            this.btnRemoveFile.Location = new System.Drawing.Point(93, 156);
             this.btnRemoveFile.Name = "btnRemoveFile";
             this.btnRemoveFile.Size = new System.Drawing.Size(75, 23);
             this.btnRemoveFile.TabIndex = 6;
@@ -146,7 +149,7 @@ namespace CombinePDF
             // lblDescription
             // 
             this.lblDescription.AutoSize = true;
-            this.lblDescription.Location = new System.Drawing.Point(80, 64);
+            this.lblDescription.Location = new System.Drawing.Point(9, 9);
             this.lblDescription.Name = "lblDescription";
             this.lblDescription.Size = new System.Drawing.Size(296, 26);
             this.lblDescription.TabIndex = 3;
@@ -156,10 +159,21 @@ namespace CombinePDF
             // label1
             // 
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label1.Location = new System.Drawing.Point(17, 105);
+            this.label1.Location = new System.Drawing.Point(17, 131);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(500, 1);
             this.label1.TabIndex = 4;
+            // 
+            // ckbDefault
+            // 
+            this.ckbDefault.AutoSize = true;
+            this.ckbDefault.Location = new System.Drawing.Point(83, 91);
+            this.ckbDefault.Name = "ckbDefault";
+            this.ckbDefault.Size = new System.Drawing.Size(134, 17);
+            this.ckbDefault.TabIndex = 12;
+            this.ckbDefault.Text = "Set directory as default";
+            this.ckbDefault.UseVisualStyleBackColor = true;
+            this.ckbDefault.CheckedChanged += new System.EventHandler(this.ckbDefault_CheckedChanged);
             // 
             // MainForm
             // 
@@ -167,7 +181,8 @@ namespace CombinePDF
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnClose;
-            this.ClientSize = new System.Drawing.Size(534, 511);
+            this.ClientSize = new System.Drawing.Size(534, 611);
+            this.Controls.Add(this.ckbDefault);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblDescription);
             this.Controls.Add(this.btnRemoveFile);
@@ -207,6 +222,7 @@ namespace CombinePDF
         private System.Windows.Forms.Button btnRemoveFile;
         private System.Windows.Forms.Label lblDescription;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox ckbDefault;
     }
 }
 

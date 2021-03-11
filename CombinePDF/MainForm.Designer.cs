@@ -199,6 +199,7 @@ namespace CombinePDF
             this.Controls.Add(this.btnMoveUp);
             this.Controls.Add(this.btnCombine);
             this.Controls.Add(this.btnClose);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(350, 350);

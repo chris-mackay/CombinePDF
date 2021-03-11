@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
 using Microsoft.WindowsAPICodePack.Dialogs;
+using System.Collections.Generic;
+using System.IO;
 
 namespace CombinePDF
 {
@@ -9,6 +11,13 @@ namespace CombinePDF
         public MainForm()
         {
             InitializeComponent();
+        }
+
+        private string[] Files(string dir)
+        {
+            string[] fInfos = Directory.GetFiles(dir, "*.pdf", SearchOption.TopDirectoryOnly);
+
+            return fInfos;
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -25,7 +34,13 @@ namespace CombinePDF
             if (isChecked)
             {
                 // Load all PDF files in directory
+                lstFiles.Items.Clear();
 
+                string[] files = Files(dir);
+                foreach (string file in files)
+                {
+                    lstFiles.Items.Add(file);
+                }
             }
         }
 
@@ -37,10 +52,17 @@ namespace CombinePDF
 
             if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
             {
-                txtDirectory.Text = dialog.FileName;
+                string dir = dialog.FileName;
+                txtDirectory.Text = dir;
 
-                // Load all PDF files in the directory
+                // Load all PDF files in directory
+                lstFiles.Items.Clear();
 
+                string[] files = Files(dir);
+                foreach (string file in files)
+                {
+                    lstFiles.Items.Add(file);
+                }
             }
         }
 

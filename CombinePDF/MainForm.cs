@@ -141,8 +141,6 @@ namespace CombinePDF
             ofd.Filter = "PDF files (*.pdf)|*.pdf";
             ofd.InitialDirectory = XMLSettings.GetSettingsValue(XMLSettings.ApplicationSettings.DefaultDirectory);
 
-
-
             if (ofd.ShowDialog() == DialogResult.OK)
             {
                 lstFiles.Items.Add(ofd.FileName);

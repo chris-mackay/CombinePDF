@@ -24,3 +24,4 @@ C:\Programming\CombinePDF\CombinePDF\bin\x64\Debug\Microsoft.WindowsAPICodePack.
 C:\Programming\CombinePDF\CombinePDF\bin\x64\Debug\Microsoft.WindowsAPICodePack.Shell.dll
 C:\Programming\CombinePDF\CombinePDF\bin\x64\Debug\Microsoft.WindowsAPICodePack.ShellExtensions.dll
 C:\Programming\CombinePDF\CombinePDF\obj\x64\Debug\CombinePDF.csproj.CopyComplete
+C:\Programming\CombinePDF\CombinePDF\bin\x64\Debug\PdfSharp.dll

@@ -65,6 +65,7 @@ namespace CombinePDF
             this.btnCombine.TabIndex = 10;
             this.btnCombine.Text = "Combine";
             this.btnCombine.UseVisualStyleBackColor = true;
+            this.btnCombine.Click += new System.EventHandler(this.btnCombine_Click);
             // 
             // btnMoveUp
             // 

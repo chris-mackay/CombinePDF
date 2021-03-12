@@ -3,6 +3,11 @@ using System.Windows.Forms;
 using Microsoft.WindowsAPICodePack.Dialogs;
 using System.Collections.Generic;
 using System.IO;
+using PdfSharp;
+using PdfSharp.Drawing;
+using PdfSharp.Pdf;
+using PdfSharp.Pdf.IO;
+using System.Diagnostics;
 
 namespace CombinePDF
 {
@@ -33,7 +38,7 @@ namespace CombinePDF
 
             if (isChecked)
             {
-                // Load all PDF files in directory
+                // Load all PDF files from directory
                 lstFiles.Items.Clear();
 
                 string[] files = Files(dir);
@@ -47,7 +52,18 @@ namespace CombinePDF
         private void btnBrowse_Click(object sender, EventArgs e)
         {
             CommonOpenFileDialog dialog = new CommonOpenFileDialog();
-            dialog.InitialDirectory = "C:\\";
+
+            string def = XMLSettings.GetSettingsValue(XMLSettings.ApplicationSettings.DefaultDirectory);
+
+            if (def == "")
+            {
+                dialog.InitialDirectory = "C:\\";
+            }
+            else
+            {
+                dialog.InitialDirectory = def;
+            }
+            
             dialog.IsFolderPicker = true;
 
             if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
@@ -55,7 +71,7 @@ namespace CombinePDF
                 string dir = dialog.FileName;
                 txtDirectory.Text = dir;
 
-                // Load all PDF files in directory
+                // Load all PDF files from directory
                 lstFiles.Items.Clear();
 
                 string[] files = Files(dir);
@@ -122,7 +138,10 @@ namespace CombinePDF
         {
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Title = "Select a file to add";
+            ofd.Filter = "PDF files (*.pdf)|*.pdf";
             ofd.InitialDirectory = XMLSettings.GetSettingsValue(XMLSettings.ApplicationSettings.DefaultDirectory);
+
+
 
             if (ofd.ShowDialog() == DialogResult.OK)
             {
@@ -132,7 +151,64 @@ namespace CombinePDF
 
         private void btnRemoveFile_Click(object sender, EventArgs e)
         {
+            if (lstFiles.SelectedItems.Count > 0)
+            {
+                string selectedFile = lstFiles.SelectedItem.ToString();
+                int index = lstFiles.SelectedIndex;
 
+                TaskDialog td = new TaskDialog();
+                td.StandardButtons = TaskDialogStandardButtons.Yes | TaskDialogStandardButtons.No;
+                td.InstructionText = "Are you sure you want to remove the selected file from the list?";
+                td.Text = selectedFile;
+                td.FooterText = "This will not delete the actual file";
+
+                if (td.Show() == TaskDialogResult.Yes)
+                {
+                    lstFiles.Items.RemoveAt(index);
+                }
+            }
+        }
+
+        private void btnCombine_Click(object sender, EventArgs e)
+        {
+            TaskDialog tdConfirm = new TaskDialog();
+            tdConfirm.StandardButtons = TaskDialogStandardButtons.Yes | TaskDialogStandardButtons.No;
+            tdConfirm.InstructionText = "Are you sure you want to combine the files?";
+
+            if (tdConfirm.Show() == TaskDialogResult.Yes)
+            {
+                PdfDocument outputDocument = new PdfDocument();
+                string dir = txtDirectory.Text;
+
+                string[] files = Files(dir);
+
+                foreach (string file in files)
+                {
+                    // Open the document to import pages from it.
+                    PdfDocument inputDocument = PdfReader.Open(file, PdfDocumentOpenMode.Import);
+
+                    int count = inputDocument.PageCount;
+                    for (int idx = 0; idx < count; idx++)
+                    {
+                        PdfPage page = inputDocument.Pages[idx];
+                        outputDocument.AddPage(page);
+                    }
+                }
+
+                string filename = dir + @"\Combined.pdf";
+                outputDocument.Save(filename);
+
+                TaskDialog tdOpen = new TaskDialog();
+                tdOpen.StandardButtons = TaskDialogStandardButtons.Yes | TaskDialogStandardButtons.No;
+                tdOpen.InstructionText = "Files have been combined successfully";
+                tdOpen.Text = "Would you like the open the combined file now?";
+                tdOpen.FooterText = filename;
+
+                if (tdOpen.Show() == TaskDialogResult.Yes)
+                {
+                    Process.Start(filename);
+                }
+            }
         }
     }
 }

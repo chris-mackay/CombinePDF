@@ -19,9 +19,8 @@ C:\Programming\CombinePDF\CombinePDF\obj\x64\Debug\CombinePDF.csproj.CoreCompile
 C:\Programming\CombinePDF\CombinePDF\obj\x64\Debug\CombinePDF.exe
 C:\Programming\CombinePDF\CombinePDF\obj\x64\Debug\CombinePDF.pdb
 C:\Programming\CombinePDF\CombinePDF\bin\x64\Debug\Microsoft.WindowsAPICodePack.dll
-C:\Programming\CombinePDF\CombinePDF\bin\x64\Debug\Microsoft.WindowsAPICodePack.ExtendedLinguisticServices.dll
-C:\Programming\CombinePDF\CombinePDF\bin\x64\Debug\Microsoft.WindowsAPICodePack.Sensors.dll
 C:\Programming\CombinePDF\CombinePDF\bin\x64\Debug\Microsoft.WindowsAPICodePack.Shell.dll
-C:\Programming\CombinePDF\CombinePDF\bin\x64\Debug\Microsoft.WindowsAPICodePack.ShellExtensions.dll
 C:\Programming\CombinePDF\CombinePDF\obj\x64\Debug\CombinePDF.csproj.CopyComplete
 C:\Programming\CombinePDF\CombinePDF\bin\x64\Debug\PdfSharp.dll
+C:\Programming\CombinePDF\CombinePDF\bin\x64\Debug\Microsoft.WindowsAPICodePack.xml
+C:\Programming\CombinePDF\CombinePDF\bin\x64\Debug\Microsoft.WindowsAPICodePack.Shell.xml

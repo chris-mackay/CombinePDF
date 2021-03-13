@@ -154,6 +154,7 @@ namespace CombinePDF
                 int index = lstFiles.SelectedIndex;
 
                 TaskDialog td = new TaskDialog();
+                td.Caption = "Combine PDF";
                 td.StandardButtons = TaskDialogStandardButtons.Yes | TaskDialogStandardButtons.No;
                 td.InstructionText = "Are you sure you want to remove the selected file from the list?";
                 td.Text = selectedFile;
@@ -171,6 +172,7 @@ namespace CombinePDF
             if (lstFiles.Items.Count > 1)
             {
                 TaskDialog tdConfirm = new TaskDialog();
+                tdConfirm.Caption = "Combine PDF";
                 tdConfirm.StandardButtons = TaskDialogStandardButtons.Yes | TaskDialogStandardButtons.No;
                 tdConfirm.InstructionText = "Are you sure you want to combine the files?";
 
@@ -195,6 +197,8 @@ namespace CombinePDF
                     outputDocument.Save(filename);
 
                     TaskDialog tdOpen = new TaskDialog();
+                    tdOpen.Caption = "Combine PDF";
+                    tdOpen.Icon = TaskDialogStandardIcon.Information;
                     tdOpen.StandardButtons = TaskDialogStandardButtons.Yes | TaskDialogStandardButtons.No;
                     tdOpen.InstructionText = "Files have been combined successfully";
                     tdOpen.Text = "Would you like the open the combined file now?";
@@ -209,9 +213,11 @@ namespace CombinePDF
             else
             {
                 TaskDialog tdAddFiles = new TaskDialog();
+                tdAddFiles.Caption = "Combine PDF";
+                tdAddFiles.Icon = TaskDialogStandardIcon.Warning;
                 tdAddFiles.StandardButtons = TaskDialogStandardButtons.Ok;
-                tdAddFiles.InstructionText = "More than one file must be provided before combining";
-                tdAddFiles.Text = "Click Add File to another file";
+                tdAddFiles.InstructionText = "At least two files must be provided before combining";
+                tdAddFiles.Text = "Click Add File to add more files";
 
                 tdAddFiles.Show();
             }
@@ -278,6 +284,8 @@ namespace CombinePDF
             else
             {
                 TaskDialog tdSpecifyDirectory = new TaskDialog();
+                tdSpecifyDirectory.Caption = "Combine PDF";
+                tdSpecifyDirectory.Icon = TaskDialogStandardIcon.Information;
                 tdSpecifyDirectory.StandardButtons = TaskDialogStandardButtons.Ok;
                 tdSpecifyDirectory.InstructionText = "No directory specified";
                 tdSpecifyDirectory.Text = "Click Browse to specify a directory before refreshing";

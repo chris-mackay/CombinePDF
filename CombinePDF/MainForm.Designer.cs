@@ -76,6 +76,7 @@ namespace CombinePDF
             this.btnMoveUp.TabIndex = 8;
             this.btnMoveUp.Text = "Move Up";
             this.btnMoveUp.UseVisualStyleBackColor = true;
+            this.btnMoveUp.Click += new System.EventHandler(this.btnMoveUp_Click);
             // 
             // btnMoveDown
             // 
@@ -86,6 +87,7 @@ namespace CombinePDF
             this.btnMoveDown.TabIndex = 9;
             this.btnMoveDown.Text = "Move Down";
             this.btnMoveDown.UseVisualStyleBackColor = true;
+            this.btnMoveDown.Click += new System.EventHandler(this.btnMoveDown_Click);
             // 
             // lblFileDirectory
             // 
@@ -124,16 +126,17 @@ namespace CombinePDF
             this.lstFiles.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.lstFiles.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lstFiles.FormattingEnabled = true;
             this.lstFiles.Location = new System.Drawing.Point(12, 185);
             this.lstFiles.Name = "lstFiles";
-            this.lstFiles.Size = new System.Drawing.Size(510, 368);
+            this.lstFiles.Size = new System.Drawing.Size(510, 364);
             this.lstFiles.TabIndex = 7;
             // 
             // btnAddFile
             // 
             this.btnAddFile.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnAddFile.Location = new System.Drawing.Point(12, 156);
+            this.btnAddFile.Location = new System.Drawing.Point(12, 150);
             this.btnAddFile.Name = "btnAddFile";
             this.btnAddFile.Size = new System.Drawing.Size(75, 23);
             this.btnAddFile.TabIndex = 5;
@@ -143,7 +146,7 @@ namespace CombinePDF
             // 
             // btnRemoveFile
             // 
-            this.btnRemoveFile.Location = new System.Drawing.Point(93, 156);
+            this.btnRemoveFile.Location = new System.Drawing.Point(93, 150);
             this.btnRemoveFile.Name = "btnRemoveFile";
             this.btnRemoveFile.Size = new System.Drawing.Size(75, 23);
             this.btnRemoveFile.TabIndex = 6;
@@ -209,6 +212,7 @@ namespace CombinePDF
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Combine PDF";
             this.Load += new System.EventHandler(this.MainForm_Load);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.MainForm_Paint);
             this.ResumeLayout(false);
             this.PerformLayout();
 

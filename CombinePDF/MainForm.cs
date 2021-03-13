@@ -8,6 +8,7 @@ using PdfSharp.Drawing;
 using PdfSharp.Pdf;
 using PdfSharp.Pdf.IO;
 using System.Diagnostics;
+using System.Drawing;
 
 namespace CombinePDF
 {
@@ -169,43 +170,94 @@ namespace CombinePDF
 
         private void btnCombine_Click(object sender, EventArgs e)
         {
-            TaskDialog tdConfirm = new TaskDialog();
-            tdConfirm.StandardButtons = TaskDialogStandardButtons.Yes | TaskDialogStandardButtons.No;
-            tdConfirm.InstructionText = "Are you sure you want to combine the files?";
-
-            if (tdConfirm.Show() == TaskDialogResult.Yes)
+            if (lstFiles.Items.Count > 1)
             {
-                PdfDocument outputDocument = new PdfDocument();
-                string dir = txtDirectory.Text;
+                TaskDialog tdConfirm = new TaskDialog();
+                tdConfirm.StandardButtons = TaskDialogStandardButtons.Yes | TaskDialogStandardButtons.No;
+                tdConfirm.InstructionText = "Are you sure you want to combine the files?";
 
-                string[] files = Files(dir);
-
-                foreach (string file in files)
+                if (tdConfirm.Show() == TaskDialogResult.Yes)
                 {
-                    // Open the document to import pages from it.
-                    PdfDocument inputDocument = PdfReader.Open(file, PdfDocumentOpenMode.Import);
+                    PdfDocument outputDocument = new PdfDocument();
+                    string dir = txtDirectory.Text;
 
-                    int count = inputDocument.PageCount;
-                    for (int idx = 0; idx < count; idx++)
+                    foreach (string file in lstFiles.Items)
                     {
-                        PdfPage page = inputDocument.Pages[idx];
-                        outputDocument.AddPage(page);
+                        // Open the document to import pages from it.
+                        PdfDocument inputDocument = PdfReader.Open(file, PdfDocumentOpenMode.Import);
+
+                        int count = inputDocument.PageCount;
+                        for (int idx = 0; idx < count; idx++)
+                        {
+                            PdfPage page = inputDocument.Pages[idx];
+                            outputDocument.AddPage(page);
+                        }
+                    }
+
+                    string filename = dir + @"\Combined.pdf";
+                    outputDocument.Save(filename);
+
+                    TaskDialog tdOpen = new TaskDialog();
+                    tdOpen.StandardButtons = TaskDialogStandardButtons.Yes | TaskDialogStandardButtons.No;
+                    tdOpen.InstructionText = "Files have been combined successfully";
+                    tdOpen.Text = "Would you like the open the combined file now?";
+                    tdOpen.FooterText = filename;
+
+                    if (tdOpen.Show() == TaskDialogResult.Yes)
+                    {
+                        Process.Start(filename);
                     }
                 }
+            }
+            else
+            {
+                TaskDialog tdAddFiles = new TaskDialog();
+                tdAddFiles.StandardButtons = TaskDialogStandardButtons.Ok;
+                tdAddFiles.InstructionText = "More than one file must be provided before combing";
+                tdAddFiles.Text = "Click Add File to another file";
 
-                string filename = dir + @"\Combined.pdf";
-                outputDocument.Save(filename);
+                tdAddFiles.Show();
+            }
+        }
 
-                TaskDialog tdOpen = new TaskDialog();
-                tdOpen.StandardButtons = TaskDialogStandardButtons.Yes | TaskDialogStandardButtons.No;
-                tdOpen.InstructionText = "Files have been combined successfully";
-                tdOpen.Text = "Would you like the open the combined file now?";
-                tdOpen.FooterText = filename;
+        private void MainForm_Paint(object sender, PaintEventArgs e)
+        {
+            Color borderColor = ColorTranslator.FromHtml("#729DCE");
 
-                if (tdOpen.Show() == TaskDialogResult.Yes)
-                {
-                    Process.Start(filename);
-                }
+            Rectangle rect1 = new Rectangle(lstFiles.Location.X, lstFiles.Location.Y, lstFiles.ClientSize.Width, lstFiles.ClientSize.Height);
+            rect1.Inflate(1, 1);
+            ControlPaint.DrawBorder(e.Graphics, rect1, borderColor, ButtonBorderStyle.Solid);
+
+            Rectangle rect11 = new Rectangle(lstFiles.Location.X, lstFiles.Location.Y, lstFiles.ClientSize.Width, lstFiles.ClientSize.Height);
+            rect11.Inflate(3, 3);
+            ControlPaint.DrawBorder(e.Graphics, rect11, borderColor, ButtonBorderStyle.Solid);
+        }
+
+        private void btnMoveUp_Click(object sender, EventArgs e)
+        {
+            if (lstFiles.SelectedItems.Count > 0)
+            {
+                int i = lstFiles.SelectedIndex;
+                int j = lstFiles.SelectedIndex - 1;
+
+                string itemToMove = lstFiles.Items[i].ToString();
+
+                lstFiles.Items.RemoveAt(i);
+                lstFiles.Items.Insert(j, itemToMove);
+            }
+        }
+
+        private void btnMoveDown_Click(object sender, EventArgs e)
+        {
+            if (lstFiles.SelectedItems.Count > 0)
+            {
+                int i = lstFiles.SelectedIndex;
+                int j = lstFiles.SelectedIndex + 1;
+
+                string itemToMove = lstFiles.Items[i].ToString();
+
+                lstFiles.Items.RemoveAt(i);
+                lstFiles.Items.Insert(j, itemToMove);
             }
         }
     }

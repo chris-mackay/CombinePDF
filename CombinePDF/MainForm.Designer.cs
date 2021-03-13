@@ -42,6 +42,7 @@ namespace CombinePDF
             this.lblDescription = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.ckbDefault = new System.Windows.Forms.CheckBox();
+            this.btnRefresh = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnClose
@@ -183,6 +184,16 @@ namespace CombinePDF
             this.ckbDefault.UseVisualStyleBackColor = true;
             this.ckbDefault.CheckedChanged += new System.EventHandler(this.ckbDefault_CheckedChanged);
             // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Location = new System.Drawing.Point(442, 150);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(75, 23);
+            this.btnRefresh.TabIndex = 13;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
             // MainForm
             // 
             this.AcceptButton = this.btnCombine;
@@ -190,6 +201,7 @@ namespace CombinePDF
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnClose;
             this.ClientSize = new System.Drawing.Size(534, 611);
+            this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.ckbDefault);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblDescription);
@@ -233,6 +245,7 @@ namespace CombinePDF
         private System.Windows.Forms.Label lblDescription;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox ckbDefault;
+        private System.Windows.Forms.Button btnRefresh;
     }
 }
 

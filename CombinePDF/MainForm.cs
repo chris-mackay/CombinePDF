@@ -39,7 +39,6 @@ namespace CombinePDF
 
             if (isChecked)
             {
-                // Load all PDF files from directory
                 lstFiles.Items.Clear();
 
                 string[] files = Files(dir);
@@ -72,7 +71,6 @@ namespace CombinePDF
                 string dir = dialog.FileName;
                 txtDirectory.Text = dir;
 
-                // Load all PDF files from directory
                 lstFiles.Items.Clear();
 
                 string[] files = Files(dir);
@@ -183,7 +181,6 @@ namespace CombinePDF
 
                     foreach (string file in lstFiles.Items)
                     {
-                        // Open the document to import pages from it.
                         PdfDocument inputDocument = PdfReader.Open(file, PdfDocumentOpenMode.Import);
 
                         int count = inputDocument.PageCount;
@@ -213,7 +210,7 @@ namespace CombinePDF
             {
                 TaskDialog tdAddFiles = new TaskDialog();
                 tdAddFiles.StandardButtons = TaskDialogStandardButtons.Ok;
-                tdAddFiles.InstructionText = "More than one file must be provided before combing";
+                tdAddFiles.InstructionText = "More than one file must be provided before combining";
                 tdAddFiles.Text = "Click Add File to another file";
 
                 tdAddFiles.Show();
@@ -244,6 +241,7 @@ namespace CombinePDF
 
                 lstFiles.Items.RemoveAt(i);
                 lstFiles.Items.Insert(j, itemToMove);
+
             }
         }
 
@@ -258,6 +256,33 @@ namespace CombinePDF
 
                 lstFiles.Items.RemoveAt(i);
                 lstFiles.Items.Insert(j, itemToMove);
+            }
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            string dir = string.Empty;
+            dir = txtDirectory.Text;
+
+            if (dir != string.Empty)
+            {
+                lstFiles.Items.Clear();
+
+                string[] files = Files(dir);
+
+                foreach (string file in files)
+                {
+                    lstFiles.Items.Add(file);
+                }
+            }
+            else
+            {
+                TaskDialog tdSpecifyDirectory = new TaskDialog();
+                tdSpecifyDirectory.StandardButtons = TaskDialogStandardButtons.Ok;
+                tdSpecifyDirectory.InstructionText = "No directory specified";
+                tdSpecifyDirectory.Text = "Click Browse to specify a directory before refreshing";
+
+                tdSpecifyDirectory.Show();
             }
         }
     }

@@ -52,7 +52,7 @@ namespace CombinePDF
             this.btnClose.Location = new System.Drawing.Point(447, 576);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
-            this.btnClose.TabIndex = 11;
+            this.btnClose.TabIndex = 13;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
@@ -63,7 +63,7 @@ namespace CombinePDF
             this.btnCombine.Location = new System.Drawing.Point(366, 576);
             this.btnCombine.Name = "btnCombine";
             this.btnCombine.Size = new System.Drawing.Size(75, 23);
-            this.btnCombine.TabIndex = 10;
+            this.btnCombine.TabIndex = 12;
             this.btnCombine.Text = "Combine";
             this.btnCombine.UseVisualStyleBackColor = true;
             this.btnCombine.Click += new System.EventHandler(this.btnCombine_Click);
@@ -74,7 +74,7 @@ namespace CombinePDF
             this.btnMoveUp.Location = new System.Drawing.Point(12, 576);
             this.btnMoveUp.Name = "btnMoveUp";
             this.btnMoveUp.Size = new System.Drawing.Size(75, 23);
-            this.btnMoveUp.TabIndex = 8;
+            this.btnMoveUp.TabIndex = 10;
             this.btnMoveUp.Text = "Move Up";
             this.btnMoveUp.UseVisualStyleBackColor = true;
             this.btnMoveUp.Click += new System.EventHandler(this.btnMoveUp_Click);
@@ -85,7 +85,7 @@ namespace CombinePDF
             this.btnMoveDown.Location = new System.Drawing.Point(93, 576);
             this.btnMoveDown.Name = "btnMoveDown";
             this.btnMoveDown.Size = new System.Drawing.Size(75, 23);
-            this.btnMoveDown.TabIndex = 9;
+            this.btnMoveDown.TabIndex = 11;
             this.btnMoveDown.Text = "Move Down";
             this.btnMoveDown.UseVisualStyleBackColor = true;
             this.btnMoveDown.Click += new System.EventHandler(this.btnMoveDown_Click);
@@ -96,7 +96,7 @@ namespace CombinePDF
             this.lblFileDirectory.Location = new System.Drawing.Point(9, 73);
             this.lblFileDirectory.Name = "lblFileDirectory";
             this.lblFileDirectory.Size = new System.Drawing.Size(68, 13);
-            this.lblFileDirectory.TabIndex = 0;
+            this.lblFileDirectory.TabIndex = 1;
             this.lblFileDirectory.Text = "File Directory";
             // 
             // txtDirectory
@@ -108,7 +108,7 @@ namespace CombinePDF
             this.txtDirectory.Name = "txtDirectory";
             this.txtDirectory.ReadOnly = true;
             this.txtDirectory.Size = new System.Drawing.Size(358, 20);
-            this.txtDirectory.TabIndex = 1;
+            this.txtDirectory.TabIndex = 2;
             this.txtDirectory.TextChanged += new System.EventHandler(this.txtDirectory_TextChanged);
             // 
             // btnBrowse
@@ -117,7 +117,7 @@ namespace CombinePDF
             this.btnBrowse.Location = new System.Drawing.Point(447, 63);
             this.btnBrowse.Name = "btnBrowse";
             this.btnBrowse.Size = new System.Drawing.Size(75, 23);
-            this.btnBrowse.TabIndex = 2;
+            this.btnBrowse.TabIndex = 3;
             this.btnBrowse.Text = "Browse";
             this.btnBrowse.UseVisualStyleBackColor = true;
             this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
@@ -132,7 +132,7 @@ namespace CombinePDF
             this.lstFiles.Location = new System.Drawing.Point(12, 185);
             this.lstFiles.Name = "lstFiles";
             this.lstFiles.Size = new System.Drawing.Size(510, 364);
-            this.lstFiles.TabIndex = 7;
+            this.lstFiles.TabIndex = 9;
             // 
             // btnAddFile
             // 
@@ -140,7 +140,7 @@ namespace CombinePDF
             this.btnAddFile.Location = new System.Drawing.Point(12, 150);
             this.btnAddFile.Name = "btnAddFile";
             this.btnAddFile.Size = new System.Drawing.Size(75, 23);
-            this.btnAddFile.TabIndex = 5;
+            this.btnAddFile.TabIndex = 6;
             this.btnAddFile.Text = "Add File";
             this.btnAddFile.UseVisualStyleBackColor = true;
             this.btnAddFile.Click += new System.EventHandler(this.btnAddFile_Click);
@@ -150,7 +150,7 @@ namespace CombinePDF
             this.btnRemoveFile.Location = new System.Drawing.Point(93, 150);
             this.btnRemoveFile.Name = "btnRemoveFile";
             this.btnRemoveFile.Size = new System.Drawing.Size(75, 23);
-            this.btnRemoveFile.TabIndex = 6;
+            this.btnRemoveFile.TabIndex = 7;
             this.btnRemoveFile.Text = "Remove File";
             this.btnRemoveFile.UseVisualStyleBackColor = true;
             this.btnRemoveFile.Click += new System.EventHandler(this.btnRemoveFile_Click);
@@ -161,7 +161,7 @@ namespace CombinePDF
             this.lblDescription.Location = new System.Drawing.Point(9, 9);
             this.lblDescription.Name = "lblDescription";
             this.lblDescription.Size = new System.Drawing.Size(296, 26);
-            this.lblDescription.TabIndex = 3;
+            this.lblDescription.TabIndex = 0;
             this.lblDescription.Text = "Specifying a directory will load all PDF files from the directory. \r\nNot includin" +
     "g sub-directories.";
             // 
@@ -171,7 +171,7 @@ namespace CombinePDF
             this.label1.Location = new System.Drawing.Point(17, 131);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(500, 1);
-            this.label1.TabIndex = 4;
+            this.label1.TabIndex = 5;
             // 
             // ckbDefault
             // 
@@ -179,7 +179,7 @@ namespace CombinePDF
             this.ckbDefault.Location = new System.Drawing.Point(83, 91);
             this.ckbDefault.Name = "ckbDefault";
             this.ckbDefault.Size = new System.Drawing.Size(134, 17);
-            this.ckbDefault.TabIndex = 12;
+            this.ckbDefault.TabIndex = 4;
             this.ckbDefault.Text = "Set directory as default";
             this.ckbDefault.UseVisualStyleBackColor = true;
             this.ckbDefault.CheckedChanged += new System.EventHandler(this.ckbDefault_CheckedChanged);
@@ -189,7 +189,7 @@ namespace CombinePDF
             this.btnRefresh.Location = new System.Drawing.Point(442, 150);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(75, 23);
-            this.btnRefresh.TabIndex = 13;
+            this.btnRefresh.TabIndex = 8;
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);

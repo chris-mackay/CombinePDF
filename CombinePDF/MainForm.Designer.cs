@@ -131,7 +131,7 @@ namespace CombinePDF
             this.lstFiles.FormattingEnabled = true;
             this.lstFiles.Location = new System.Drawing.Point(12, 185);
             this.lstFiles.Name = "lstFiles";
-            this.lstFiles.Size = new System.Drawing.Size(510, 364);
+            this.lstFiles.Size = new System.Drawing.Size(510, 377);
             this.lstFiles.TabIndex = 9;
             // 
             // btnAddFile

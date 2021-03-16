@@ -199,17 +199,17 @@ namespace CombinePDF
                         string name = input.txtInput.Text + ".pdf";
                         string filename = Path.Combine(dir, name);
 
+                        TaskDialog tdOpen = new TaskDialog();
+                        tdOpen.Caption = "Combine PDF";
+                        tdOpen.Icon = TaskDialogStandardIcon.Information;
+                        tdOpen.StandardButtons = TaskDialogStandardButtons.Yes | TaskDialogStandardButtons.No;
+                        tdOpen.InstructionText = "Files have been combined successfully";
+                        tdOpen.Text = "Would you like the open the combined file now?";
+                        tdOpen.FooterText = filename;
+
                         if (!File.Exists(filename))
                         {
                             outputDocument.Save(filename);
-
-                            TaskDialog tdOpen = new TaskDialog();
-                            tdOpen.Caption = "Combine PDF";
-                            tdOpen.Icon = TaskDialogStandardIcon.Information;
-                            tdOpen.StandardButtons = TaskDialogStandardButtons.Yes | TaskDialogStandardButtons.No;
-                            tdOpen.InstructionText = "Files have been combined successfully";
-                            tdOpen.Text = "Would you like the open the combined file now?";
-                            tdOpen.FooterText = filename;
 
                             if (tdOpen.Show() == TaskDialogResult.Yes)
                             {
@@ -218,15 +218,50 @@ namespace CombinePDF
                         }
                         else
                         {
-                            TaskDialog tdFileExists = new TaskDialog();
-                            tdFileExists.Caption = "Combine PDF";
-                            tdFileExists.Icon = TaskDialogStandardIcon.Warning;
-                            tdFileExists.StandardButtons = TaskDialogStandardButtons.Ok;
-                            tdFileExists.InstructionText = "File already exists in this location";
-                            tdFileExists.Text = "Provide a unique file name";
-                            tdFileExists.FooterText = filename;
+                            bool alwaysOverwrite = bool.Parse(XMLSettings.GetSettingsValue(XMLSettings.ApplicationSettings.AlwaysOverwrite));
 
-                            tdFileExists.Show();
+                            if (alwaysOverwrite)
+                            {
+                                File.Delete(filename);
+                                outputDocument.Save(filename);
+
+                                if (tdOpen.Show() == TaskDialogResult.Yes)
+                                {
+                                    Process.Start(filename);
+                                }
+                            }
+                            else
+                            {
+                                TaskDialog tdFileExists = new TaskDialog();
+                                tdFileExists.Caption = "Combine PDF";
+                                tdFileExists.Icon = TaskDialogStandardIcon.Warning;
+                                tdFileExists.StandardButtons = TaskDialogStandardButtons.Yes | TaskDialogStandardButtons.No;
+                                tdFileExists.InstructionText = "File already exists in this location";
+                                tdFileExists.Text = "Overwrite file?";
+                                tdFileExists.FooterText = filename;
+                                tdFileExists.FooterCheckBoxText = "Always Overwrite?";
+                                tdFileExists.FooterCheckBoxChecked = false;
+
+                                if (tdFileExists.Show() == TaskDialogResult.Yes)
+                                {
+                                    if (tdFileExists.FooterCheckBoxChecked.Value)
+                                    {
+                                        XMLSettings.SetSettingsValue(XMLSettings.ApplicationSettings.AlwaysOverwrite, "true");
+                                    }
+                                    else
+                                    {
+                                        XMLSettings.SetSettingsValue(XMLSettings.ApplicationSettings.AlwaysOverwrite, "false");
+                                    }
+
+                                    File.Delete(filename);
+                                    outputDocument.Save(filename);
+
+                                    if (tdOpen.Show() == TaskDialogResult.Yes)
+                                    {
+                                        Process.Start(filename);
+                                    }
+                                }
+                            }
                         }
                     }
                 }
@@ -318,6 +353,42 @@ namespace CombinePDF
         private void MainForm_SizeChanged(object sender, EventArgs e)
         {
             this.Refresh();
+        }
+
+        private void btnClearSettings_Click(object sender, EventArgs e)
+        {
+            TaskDialog tdDeleteSettings = new TaskDialog();
+            tdDeleteSettings.Caption = "Combine PDF";
+            tdDeleteSettings.StandardButtons = TaskDialogStandardButtons.Yes | TaskDialogStandardButtons.No;
+            tdDeleteSettings.InstructionText = "Clear all application settings?";
+
+            if (tdDeleteSettings.Show() == TaskDialogResult.Yes)
+            {
+                File.Delete(XMLSettings.AppSettingsFile);
+            }
+        }
+
+        private void btnDeleteFile_Click(object sender, EventArgs e)
+        {
+            if (lstFiles.SelectedItems.Count > 0)
+            {
+                string selectedFile = lstFiles.SelectedItem.ToString();
+                int index = lstFiles.SelectedIndex;
+
+                TaskDialog td = new TaskDialog();
+                td.Caption = "Combine PDF";
+                td.Icon = TaskDialogStandardIcon.Warning;
+                td.StandardButtons = TaskDialogStandardButtons.Yes | TaskDialogStandardButtons.No;
+                td.InstructionText = "Are you sure you want to delete the selected file?";
+                td.Text = "THE FILE WILL BE PERMANENTLY DELETED FROM YOUR COMPUTER";
+                td.FooterText = selectedFile;
+
+                if (td.Show() == TaskDialogResult.Yes)
+                {
+                    File.Delete(selectedFile);
+                    lstFiles.Items.RemoveAt(index);
+                }
+            }
         }
     }
 }

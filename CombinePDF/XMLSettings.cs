@@ -76,6 +76,7 @@ namespace CombinePDF
 
             // Add settings here
             appSettings.Add("DefaultDirectory," + "");
+            appSettings.Add("AlwaysOverwrite," + "false");
 
             if (!SettingsFileExists())
             {
@@ -147,6 +148,7 @@ namespace CombinePDF
         {
             // Add settings here
             public const string DefaultDirectory = "//Settings/DefaultDirectory";
+            public const string AlwaysOverwrite = "//Settings/AlwaysOverwrite";
         }
     }
 }

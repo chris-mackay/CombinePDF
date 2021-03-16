@@ -71,7 +71,7 @@
             // 
             this.lblPrompt.AutoSize = true;
             this.lblPrompt.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblPrompt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(66)))), ((int)(((byte)(139)))));
+            this.lblPrompt.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblPrompt.Location = new System.Drawing.Point(12, 12);
             this.lblPrompt.Name = "lblPrompt";
             this.lblPrompt.Size = new System.Drawing.Size(47, 15);

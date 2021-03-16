@@ -193,20 +193,44 @@ namespace CombinePDF
                         }
                     }
 
-                    string filename = dir + @"\Combined.pdf";
-                    outputDocument.Save(filename);
+                    frmInput input = new frmInput();
+                    input.lblPrompt.Text = "Enter the name of the combined file";
+                    input.Text = "Combine PDF";
 
-                    TaskDialog tdOpen = new TaskDialog();
-                    tdOpen.Caption = "Combine PDF";
-                    tdOpen.Icon = TaskDialogStandardIcon.Information;
-                    tdOpen.StandardButtons = TaskDialogStandardButtons.Yes | TaskDialogStandardButtons.No;
-                    tdOpen.InstructionText = "Files have been combined successfully";
-                    tdOpen.Text = "Would you like the open the combined file now?";
-                    tdOpen.FooterText = filename;
-
-                    if (tdOpen.Show() == TaskDialogResult.Yes)
+                    if (input.ShowDialog() == DialogResult.OK)
                     {
-                        Process.Start(filename);
+                        string name = input.txtInput.Text + ".pdf";
+                        string filename = Path.Combine(dir, name);
+
+                        if (!File.Exists(filename))
+                        {
+                            outputDocument.Save(filename);
+
+                            TaskDialog tdOpen = new TaskDialog();
+                            tdOpen.Caption = "Combine PDF";
+                            tdOpen.Icon = TaskDialogStandardIcon.Information;
+                            tdOpen.StandardButtons = TaskDialogStandardButtons.Yes | TaskDialogStandardButtons.No;
+                            tdOpen.InstructionText = "Files have been combined successfully";
+                            tdOpen.Text = "Would you like the open the combined file now?";
+                            tdOpen.FooterText = filename;
+
+                            if (tdOpen.Show() == TaskDialogResult.Yes)
+                            {
+                                Process.Start(filename);
+                            }
+                        }
+                        else
+                        {
+                            TaskDialog tdFileExists = new TaskDialog();
+                            tdFileExists.Caption = "Combine PDF";
+                            tdFileExists.Icon = TaskDialogStandardIcon.Warning;
+                            tdFileExists.StandardButtons = TaskDialogStandardButtons.Ok;
+                            tdFileExists.InstructionText = "File already exists in this location";
+                            tdFileExists.Text = "Provide a unique file name";
+                            tdFileExists.FooterText = filename;
+
+                            tdFileExists.Show();
+                        }
                     }
                 }
             }

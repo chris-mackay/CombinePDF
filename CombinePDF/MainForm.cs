@@ -293,5 +293,10 @@ namespace CombinePDF
                 tdSpecifyDirectory.Show();
             }
         }
+
+        private void MainForm_SizeChanged(object sender, EventArgs e)
+        {
+            this.Refresh();
+        }
     }
 }

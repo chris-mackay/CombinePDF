@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using Microsoft.WindowsAPICodePack.Dialogs;
-using System.Collections.Generic;
 using System.IO;
-using PdfSharp;
-using PdfSharp.Drawing;
 using PdfSharp.Pdf;
 using PdfSharp.Pdf.IO;
 using System.Diagnostics;

@@ -139,7 +139,23 @@ namespace CombinePDF
 
             if (ofd.ShowDialog() == DialogResult.OK)
             {
-                lstFiles.Items.Add(ofd.FileName);
+                string file = ofd.FileName;
+
+                if (!lstFiles.Items.Contains(file))
+                {
+                    lstFiles.Items.Add(ofd.FileName);
+                }
+                else
+                {
+                    TaskDialog tdFileExists = new TaskDialog();
+                    tdFileExists.Caption = "Combine PDF";
+                    tdFileExists.Icon = TaskDialogStandardIcon.Warning;
+                    tdFileExists.StandardButtons = TaskDialogStandardButtons.Ok;
+                    tdFileExists.InstructionText = "File already exists in this list";
+                    tdFileExists.FooterText = file;
+
+                    tdFileExists.Show();
+                }
             }
         }
 

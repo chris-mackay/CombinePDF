@@ -11,6 +11,7 @@ namespace CombinePDF
 {
     public partial class MainForm : Form
     {
+
         public MainForm()
         {
             InitializeComponent();
@@ -371,17 +372,12 @@ namespace CombinePDF
             this.Refresh();
         }
 
-        private void btnClearSettings_Click(object sender, EventArgs e)
+        private void btnSettings_Click(object sender, EventArgs e)
         {
-            TaskDialog tdDeleteSettings = new TaskDialog();
-            tdDeleteSettings.Caption = "Combine PDF";
-            tdDeleteSettings.StandardButtons = TaskDialogStandardButtons.Yes | TaskDialogStandardButtons.No;
-            tdDeleteSettings.InstructionText = "Clear all application settings?";
+            frmSettings settings = new frmSettings();
 
-            if (tdDeleteSettings.Show() == TaskDialogResult.Yes)
-            {
-                File.Delete(XMLSettings.AppSettingsFile);
-            }
+            if (settings.ShowDialog() == DialogResult.Yes)
+                txtDirectory.Text = settings.txtDirectory.Text;
         }
 
         private void btnDeleteFile_Click(object sender, EventArgs e)

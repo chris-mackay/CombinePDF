@@ -43,7 +43,7 @@ namespace CombinePDF
             this.label1 = new System.Windows.Forms.Label();
             this.ckbDefault = new System.Windows.Forms.CheckBox();
             this.btnRefresh = new System.Windows.Forms.Button();
-            this.btnClearSettings = new System.Windows.Forms.Button();
+            this.btnSettings = new System.Windows.Forms.Button();
             this.btnDeleteFile = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -73,7 +73,7 @@ namespace CombinePDF
             // btnMoveUp
             // 
             this.btnMoveUp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnMoveUp.Location = new System.Drawing.Point(12, 576);
+            this.btnMoveUp.Location = new System.Drawing.Point(189, 576);
             this.btnMoveUp.Name = "btnMoveUp";
             this.btnMoveUp.Size = new System.Drawing.Size(75, 23);
             this.btnMoveUp.TabIndex = 12;
@@ -84,7 +84,7 @@ namespace CombinePDF
             // btnMoveDown
             // 
             this.btnMoveDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnMoveDown.Location = new System.Drawing.Point(93, 576);
+            this.btnMoveDown.Location = new System.Drawing.Point(270, 576);
             this.btnMoveDown.Name = "btnMoveDown";
             this.btnMoveDown.Size = new System.Drawing.Size(75, 23);
             this.btnMoveDown.TabIndex = 13;
@@ -105,18 +105,16 @@ namespace CombinePDF
             // 
             this.txtDirectory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDirectory.Enabled = false;
             this.txtDirectory.Location = new System.Drawing.Point(83, 65);
             this.txtDirectory.Name = "txtDirectory";
-            this.txtDirectory.ReadOnly = true;
-            this.txtDirectory.Size = new System.Drawing.Size(358, 20);
+            this.txtDirectory.Size = new System.Drawing.Size(434, 20);
             this.txtDirectory.TabIndex = 3;
             this.txtDirectory.TextChanged += new System.EventHandler(this.txtDirectory_TextChanged);
             // 
             // btnBrowse
             // 
             this.btnBrowse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBrowse.Location = new System.Drawing.Point(447, 63);
+            this.btnBrowse.Location = new System.Drawing.Point(442, 91);
             this.btnBrowse.Name = "btnBrowse";
             this.btnBrowse.Size = new System.Drawing.Size(75, 23);
             this.btnBrowse.TabIndex = 4;
@@ -199,17 +197,17 @@ namespace CombinePDF
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
-            // btnClearSettings
+            // btnSettings
             // 
-            this.btnClearSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClearSettings.Location = new System.Drawing.Point(393, 9);
-            this.btnClearSettings.Name = "btnClearSettings";
-            this.btnClearSettings.Size = new System.Drawing.Size(129, 23);
-            this.btnClearSettings.TabIndex = 1;
-            this.btnClearSettings.TabStop = false;
-            this.btnClearSettings.Text = "Clear App Settings";
-            this.btnClearSettings.UseVisualStyleBackColor = true;
-            this.btnClearSettings.Click += new System.EventHandler(this.btnClearSettings_Click);
+            this.btnSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSettings.Location = new System.Drawing.Point(12, 576);
+            this.btnSettings.Name = "btnSettings";
+            this.btnSettings.Size = new System.Drawing.Size(156, 23);
+            this.btnSettings.TabIndex = 1;
+            this.btnSettings.TabStop = false;
+            this.btnSettings.Text = "Settings";
+            this.btnSettings.UseVisualStyleBackColor = true;
+            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
             // 
             // btnDeleteFile
             // 
@@ -229,7 +227,7 @@ namespace CombinePDF
             this.CancelButton = this.btnClose;
             this.ClientSize = new System.Drawing.Size(534, 611);
             this.Controls.Add(this.btnDeleteFile);
-            this.Controls.Add(this.btnClearSettings);
+            this.Controls.Add(this.btnSettings);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.ckbDefault);
             this.Controls.Add(this.label1);
@@ -276,7 +274,7 @@ namespace CombinePDF
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox ckbDefault;
         private System.Windows.Forms.Button btnRefresh;
-        private System.Windows.Forms.Button btnClearSettings;
+        private System.Windows.Forms.Button btnSettings;
         private System.Windows.Forms.Button btnDeleteFile;
     }
 }

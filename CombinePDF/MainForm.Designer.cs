@@ -29,6 +29,7 @@ namespace CombinePDF
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.btnClose = new System.Windows.Forms.Button();
             this.btnCombine = new System.Windows.Forms.Button();
             this.btnMoveUp = new System.Windows.Forms.Button();
@@ -199,7 +200,7 @@ namespace CombinePDF
             // 
             // btnSettings
             // 
-            this.btnSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnSettings.Location = new System.Drawing.Point(12, 576);
             this.btnSettings.Name = "btnSettings";
             this.btnSettings.Size = new System.Drawing.Size(156, 23);
@@ -242,11 +243,11 @@ namespace CombinePDF
             this.Controls.Add(this.btnMoveUp);
             this.Controls.Add(this.btnCombine);
             this.Controls.Add(this.btnClose);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(470, 350);
+            this.MinimumSize = new System.Drawing.Size(550, 350);
             this.Name = "MainForm";
-            this.ShowIcon = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Combine PDF";

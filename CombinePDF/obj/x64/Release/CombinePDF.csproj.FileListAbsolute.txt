@@ -1,0 +1,15 @@
+C:\Programming\CombinePDF\CombinePDF\bin\x64\Release\CombinePDF.exe.config
+C:\Programming\CombinePDF\CombinePDF\bin\x64\Release\CombinePDF.exe
+C:\Programming\CombinePDF\CombinePDF\bin\x64\Release\Microsoft.WindowsAPICodePack.dll
+C:\Programming\CombinePDF\CombinePDF\bin\x64\Release\Microsoft.WindowsAPICodePack.Shell.dll
+C:\Programming\CombinePDF\CombinePDF\bin\x64\Release\PdfSharp.dll
+C:\Programming\CombinePDF\CombinePDF\bin\x64\Release\Microsoft.WindowsAPICodePack.xml
+C:\Programming\CombinePDF\CombinePDF\bin\x64\Release\Microsoft.WindowsAPICodePack.Shell.xml
+C:\Programming\CombinePDF\CombinePDF\obj\x64\Release\CombinePDF.frmInput.resources
+C:\Programming\CombinePDF\CombinePDF\obj\x64\Release\CombinePDF.frmSettings.resources
+C:\Programming\CombinePDF\CombinePDF\obj\x64\Release\CombinePDF.MainForm.resources
+C:\Programming\CombinePDF\CombinePDF\obj\x64\Release\CombinePDF.Properties.Resources.resources
+C:\Programming\CombinePDF\CombinePDF\obj\x64\Release\CombinePDF.csproj.GenerateResource.cache
+C:\Programming\CombinePDF\CombinePDF\obj\x64\Release\CombinePDF.csproj.CoreCompileInputs.cache
+C:\Programming\CombinePDF\CombinePDF\obj\x64\Release\CombinePDF.csproj.CopyComplete
+C:\Programming\CombinePDF\CombinePDF\obj\x64\Release\CombinePDF.exe

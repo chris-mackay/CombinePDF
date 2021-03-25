@@ -171,8 +171,8 @@ namespace CombinePDF
                 td.Caption = "Combine PDF";
                 td.StandardButtons = TaskDialogStandardButtons.Yes | TaskDialogStandardButtons.No;
                 td.InstructionText = "Are you sure you want to remove the selected file from the list?";
-                td.Text = selectedFile;
-                td.FooterText = "This will not delete the actual file";
+                td.Text = "This will not delete the actual file";
+                td.FooterText = selectedFile;
 
                 if (td.Show() == TaskDialogResult.Yes)
                 {

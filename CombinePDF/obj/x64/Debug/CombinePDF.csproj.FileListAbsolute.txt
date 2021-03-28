@@ -25,3 +25,4 @@ C:\Programming\CombinePDF\CombinePDF\obj\x64\Debug\CombinePDF.csproj.CoreCompile
 C:\Programming\CombinePDF\CombinePDF\obj\x64\Debug\CombinePDF.csproj.CopyComplete
 C:\Programming\CombinePDF\CombinePDF\obj\x64\Debug\CombinePDF.exe
 C:\Programming\CombinePDF\CombinePDF\obj\x64\Debug\CombinePDF.pdb
+C:\Programming\CombinePDF\CombinePDF\obj\x64\Debug\CombinePDF.csprojAssemblyReference.cache

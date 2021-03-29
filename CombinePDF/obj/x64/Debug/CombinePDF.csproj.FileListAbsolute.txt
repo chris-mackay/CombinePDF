@@ -6,7 +6,6 @@ C:\Programming\CombinePDF\CombinePDF\bin\x64\Debug\Microsoft.WindowsAPICodePack.
 C:\Programming\CombinePDF\CombinePDF\bin\x64\Debug\PdfSharp.dll
 C:\Programming\CombinePDF\CombinePDF\bin\x64\Debug\Microsoft.WindowsAPICodePack.xml
 C:\Programming\CombinePDF\CombinePDF\bin\x64\Debug\Microsoft.WindowsAPICodePack.Shell.xml
-C:\Programming\CombinePDF\CombinePDF\obj\x64\Debug\CombinePDF.csprojAssemblyReference.cache
 C:\Programming\CombinePDF\CombinePDF\obj\x64\Debug\CombinePDF.frmInput.resources
 C:\Programming\CombinePDF\CombinePDF\obj\x64\Debug\CombinePDF.frmSettings.resources
 C:\Programming\CombinePDF\CombinePDF\obj\x64\Debug\CombinePDF.MainForm.resources

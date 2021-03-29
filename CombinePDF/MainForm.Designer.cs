@@ -29,6 +29,7 @@ namespace CombinePDF
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.btnClose = new System.Windows.Forms.Button();
             this.btnCombine = new System.Windows.Forms.Button();
             this.btnMoveUp = new System.Windows.Forms.Button();
@@ -242,6 +243,7 @@ namespace CombinePDF
             this.Controls.Add(this.btnMoveUp);
             this.Controls.Add(this.btnCombine);
             this.Controls.Add(this.btnClose);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(550, 350);

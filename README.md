@@ -1,5 +1,5 @@
 # CombinePDF
-A simple application for combining multiple PDF files into one file
+A simple application for combining and extracting PDF documents
 
 Utilizes [PDFsharp](https://github.com/empira/PDFsharp)
 

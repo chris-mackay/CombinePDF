@@ -8,6 +8,7 @@ using System.Diagnostics;
 using System.Text;
 using System.Linq;
 using System;
+using System.Reflection;
 
 namespace CombinePDF
 {
@@ -233,9 +234,11 @@ namespace CombinePDF
         {
             if (dg.SelectedItems.Count > 0)
             {
+                var index = 0;
+
                 foreach (FileModel file in dg.SelectedItems)
                 {
-                    var index = dg.Items.IndexOf(file);
+                    index = dg.Items.IndexOf(file);
 
                     try
                     {
@@ -250,6 +253,7 @@ namespace CombinePDF
 
                 dg.ItemsSource = null;
                 dg.ItemsSource = filesToCombine;
+                dg.SelectedIndex = index + 1;
             }
         }
 
@@ -257,9 +261,11 @@ namespace CombinePDF
         {
             if (dg.SelectedItems.Count > 0)
             {
+                var index = 0;
+
                 foreach (FileModel file in dg.SelectedItems)
                 {
-                    var index = dg.Items.IndexOf(file);
+                    index = dg.Items.IndexOf(file);
 
                     try
                     {
@@ -274,6 +280,7 @@ namespace CombinePDF
 
                 dg.ItemsSource = null;
                 dg.ItemsSource = filesToCombine;
+                dg.SelectedIndex = index - 1;
             }
         }
 
@@ -289,7 +296,9 @@ namespace CombinePDF
                 tdConfirm.Caption = "Combine PDF";
                 tdConfirm.StandardButtons = TaskDialogStandardButtons.Yes | TaskDialogStandardButtons.No;
                 tdConfirm.InstructionText = "Combine files?";
-                tdConfirm.Text = sb.ToString();
+                tdConfirm.Text = "Files will be appended to the combined file in " +
+                                 "the order that they are presented in the list";
+                tdConfirm.FooterText = sb.ToString();
 
                 if (tdConfirm.Show() == TaskDialogResult.Yes)
                 {

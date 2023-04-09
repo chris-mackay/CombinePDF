@@ -229,7 +229,7 @@ namespace CombinePDF
 
         private void btnMoveDown_Click(object sender, RoutedEventArgs e)
         {
-            if (dg.SelectedItems.Count > 0)
+            if (dg.SelectedItems.Count > 0 && dg.SelectedItems.Count == 1)
             {
                 var index = 0;
 
@@ -252,11 +252,21 @@ namespace CombinePDF
                 dg.ItemsSource = filesToCombine;
                 dg.SelectedIndex = index + 1;
             }
+            else
+            {
+                TaskDialog td = new TaskDialog();
+                td.StartupLocation = TaskDialogStartupLocation.CenterOwner;
+                td.Caption = "Combine PDF";
+                td.StandardButtons = TaskDialogStandardButtons.Ok;
+                td.InstructionText = "Select a single file";
+                td.Text = "Files can only be moved one at a time";
+                td.Show();
+            }
         }
 
         private void btnMoveUp_Click(object sender, RoutedEventArgs e)
         {
-            if (dg.SelectedItems.Count > 0)
+            if (dg.SelectedItems.Count > 0 && dg.SelectedItems.Count == 1)
             {
                 var index = 0;
 
@@ -278,6 +288,16 @@ namespace CombinePDF
                 dg.ItemsSource = null;
                 dg.ItemsSource = filesToCombine;
                 dg.SelectedIndex = index - 1;
+            }
+            else
+            {
+                TaskDialog td = new TaskDialog();
+                td.StartupLocation = TaskDialogStartupLocation.CenterOwner;
+                td.Caption = "Combine PDF";
+                td.StandardButtons = TaskDialogStandardButtons.Ok;
+                td.InstructionText = "Select a single file";
+                td.Text = "Files can only be moved one at a time";
+                td.Show();
             }
         }
 

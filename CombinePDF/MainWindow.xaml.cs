@@ -8,7 +8,6 @@ using System.Diagnostics;
 using System.Text;
 using System.Linq;
 using System;
-using System.Reflection;
 
 namespace CombinePDF
 {
@@ -221,11 +220,9 @@ namespace CombinePDF
                 TaskDialog td = new TaskDialog();
                 td.StartupLocation = TaskDialogStartupLocation.CenterOwner;
                 td.Caption = "Combine PDF";
-                td.Icon = TaskDialogStandardIcon.Warning;
                 td.StandardButtons = TaskDialogStandardButtons.Ok;
-                td.InstructionText = "At least one file must be selected";
-                td.Text = "Select a file to extract pages";
-
+                td.InstructionText = "No file selected";
+                td.Text = "Select a file to extract";
                 td.Show();
             }
         }

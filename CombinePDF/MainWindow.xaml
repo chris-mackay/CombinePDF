@@ -42,6 +42,8 @@
             <Button x:Name="btnRemoveFile" Click="btnRemove_Click" Content="Remove File" Width="75" Height="25" Margin="0 0 10 0"/>
             <Button x:Name="btnDeleteFile" Click="btnDelete_Click" Content="Delete File" Width="75" Height="25" Margin="0 0 10 0"/>
             <Button x:Name="btnExtract" Click="btnExtract_Click" Content="Extract" Width="75" Height="25"/>
+             <!--TODO: Add Refresh button. 
+                       This will refresh the document info for all loaded files-->
         </StackPanel>
 
         <DataGrid x:Name="dg"

@@ -366,6 +366,7 @@ namespace CombinePDF
                     foreach (FileModel file in filesToCombine)
                     {
                         // TODO: Add try/catch
+                        // Count missing files as you did for refresh button.
                         PdfDocument inputDocument = PdfReader.Open(file.Filename, PdfDocumentOpenMode.Import);
 
                         int count = inputDocument.PageCount;

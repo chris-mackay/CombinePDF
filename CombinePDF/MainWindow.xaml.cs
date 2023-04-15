@@ -271,7 +271,7 @@ namespace CombinePDF
 
         private void btnMoveDown_Click(object sender, RoutedEventArgs e)
         {
-            if (dg.SelectedItems.Count > 0 && dg.SelectedItems.Count == 1)
+            if (dg.SelectedItems.Count == 1)
             {
                 var index = 0;
 
@@ -308,7 +308,7 @@ namespace CombinePDF
 
         private void btnMoveUp_Click(object sender, RoutedEventArgs e)
         {
-            if (dg.SelectedItems.Count > 0 && dg.SelectedItems.Count == 1)
+            if (dg.SelectedItems.Count == 1)
             {
                 var index = 0;
 

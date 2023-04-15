@@ -227,6 +227,48 @@ namespace CombinePDF
             }
         }
 
+        private void btnRefresh_Click(object sender, RoutedEventArgs e)
+        {
+            StringBuilder sb = new StringBuilder();
+            List<FileModel> missingFiles = new List<FileModel>();
+
+            foreach (FileModel file in filesToCombine)
+            {
+                try
+                {
+                    PdfDocument doc = PdfReader.Open(file.Filename, PdfDocumentOpenMode.Import);
+                    file.PageCount = doc.PageCount;
+                    file.Filesize = $"{Math.Ceiling(doc.FileSize / 1000.0)} KB";
+                }
+                catch (FileNotFoundException)
+                {
+                    missingFiles.Add(file);
+                }
+                catch (Exception ex)
+                {
+                    Error.Show(ex);
+                }
+            }
+
+            if (missingFiles.Count > 0)
+            {
+                missingFiles.ForEach(x => sb.AppendLine(x.Filename));
+                missingFiles.ForEach(x => filesToCombine.Remove(x));
+
+                TaskDialog td = new TaskDialog();
+                td.StartupLocation = TaskDialogStartupLocation.CenterOwner;
+                td.Caption = "Combine PDF";
+                td.StandardButtons = TaskDialogStandardButtons.Ok;
+                td.InstructionText = $"({missingFiles.Count}) files not found";
+                td.Text = "Files will be removed from the list";
+                td.FooterText = sb.ToString();
+                td.Show();
+            }
+
+            dg.ItemsSource = null;
+            dg.ItemsSource = filesToCombine;
+        }
+
         private void btnMoveDown_Click(object sender, RoutedEventArgs e)
         {
             if (dg.SelectedItems.Count > 0 && dg.SelectedItems.Count == 1)
@@ -323,6 +365,7 @@ namespace CombinePDF
 
                     foreach (FileModel file in filesToCombine)
                     {
+                        // TODO: Add try/catch
                         PdfDocument inputDocument = PdfReader.Open(file.Filename, PdfDocumentOpenMode.Import);
 
                         int count = inputDocument.PageCount;

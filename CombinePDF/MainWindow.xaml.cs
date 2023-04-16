@@ -361,20 +361,49 @@ namespace CombinePDF
 
                 if (tdConfirm.Show() == TaskDialogResult.Yes)
                 {
+                    List<FileModel> missingFiles = new List<FileModel>();
                     PdfDocument outputDocument = new PdfDocument();
+                    StringBuilder sb2 = new StringBuilder();
 
                     foreach (FileModel file in filesToCombine)
                     {
-                        // TODO: Add try/catch
-                        // Count missing files as you did for refresh button.
-                        PdfDocument inputDocument = PdfReader.Open(file.Filename, PdfDocumentOpenMode.Import);
-
-                        int count = inputDocument.PageCount;
-                        for (int i = 0; i < count; i++)
+                        try
                         {
-                            PdfPage page = inputDocument.Pages[i];
-                            outputDocument.AddPage(page);
+                            PdfDocument inputDocument = PdfReader.Open(file.Filename, PdfDocumentOpenMode.Import);
+
+                            int count = inputDocument.PageCount;
+                            for (int i = 0; i < count; i++)
+                            {
+                                PdfPage page = inputDocument.Pages[i];
+                                outputDocument.AddPage(page);
+                            }
                         }
+                        catch (FileNotFoundException)
+                        {
+                            missingFiles.Add(file);
+                        }
+                        catch (Exception ex)
+                        {
+                            Error.Show(ex);
+                        }
+                    }
+
+                    if (missingFiles.Count > 0)
+                    {
+                        missingFiles.ForEach(x => sb2.AppendLine(x.Filename));
+                        missingFiles.ForEach(x => filesToCombine.Remove(x));
+
+                        TaskDialog tdMissing = new TaskDialog();
+                        tdMissing.StartupLocation = TaskDialogStartupLocation.CenterOwner;
+                        tdMissing.Caption = "Combine PDF";
+                        tdMissing.StandardButtons = TaskDialogStandardButtons.Ok;
+                        tdMissing.InstructionText = $"({missingFiles.Count}) files not found";
+                        tdMissing.Text = "Files will be removed from the list";
+                        tdMissing.FooterText = sb2.ToString();
+                        tdMissing.Show();
+
+                        dg.ItemsSource = null;
+                        dg.ItemsSource = filesToCombine; 
                     }
 
                     CommonSaveFileDialog sd = new CommonSaveFileDialog();

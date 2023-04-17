@@ -269,6 +269,46 @@ namespace CombinePDF
             dg.ItemsSource = filesToCombine;
         }
 
+        private void btnPreview_Click(object sender, RoutedEventArgs e)
+        {
+            if (filesToCombine.Count > 1)
+            {
+                PdfDocument outputDocument = new PdfDocument();
+                string tempFile = Path.Combine(Path.GetTempPath(), "temp.pdf");
+
+                foreach (FileModel file in filesToCombine)
+                {
+                    PdfDocument inputDocument = PdfReader.Open(file.Filename, PdfDocumentOpenMode.Import);
+
+                    int count = inputDocument.PageCount;
+                    for (int i = 0; i < count; i++)
+                    {
+                        PdfPage page = inputDocument.Pages[i];
+                        outputDocument.AddPage(page);
+                    }
+                }
+
+                outputDocument.Save(tempFile);
+
+                frmPreview preview = new frmPreview();
+                preview.Owner = Application.Current.MainWindow;
+                UriBuilder uriBuilder = new UriBuilder(tempFile);
+                preview.pdfViewer.Source = uriBuilder.Uri;
+                preview.Show(); 
+            }
+            else
+            {
+                TaskDialog td = new TaskDialog();
+                td.StartupLocation = TaskDialogStartupLocation.CenterOwner;
+                td.Caption = "Combine PDF";
+                td.Icon = TaskDialogStandardIcon.Warning;
+                td.StandardButtons = TaskDialogStandardButtons.Ok;
+                td.InstructionText = "At least two files must be provided before previewing";
+                td.Text = "Click Add File to add more files";
+                td.Show();
+            }
+        }
+
         private void btnMoveDown_Click(object sender, RoutedEventArgs e)
         {
             if (dg.SelectedItems.Count == 1)

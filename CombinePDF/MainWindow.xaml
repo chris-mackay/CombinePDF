@@ -42,7 +42,8 @@
             <Button x:Name="btnRemoveFile" Click="btnRemove_Click" Content="Remove File" Width="75" Height="25" Margin="0 0 10 0"/>
             <Button x:Name="btnDeleteFile" Click="btnDelete_Click" Content="Delete File" Width="75" Height="25" Margin="0 0 10 0"/>
             <Button x:Name="btnExtract" Click="btnExtract_Click" Content="Extract" Width="75" Height="25" Margin="0 0 10 0"/>
-            <Button x:Name="btnRefresh" Click="btnRefresh_Click" Content="Refresh" Width="75" Height="25"/>
+            <Button x:Name="btnRefresh" Click="btnRefresh_Click" Content="Refresh" Width="75" Height="25" Margin="0 0 10 0"/>
+            <Button x:Name="btnPreview" Click="btnPreview_Click" Content="Preview" Width="75" Height="25"/>
         </StackPanel>
 
         <DataGrid x:Name="dg"

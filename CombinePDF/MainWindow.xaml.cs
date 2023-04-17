@@ -274,7 +274,7 @@ namespace CombinePDF
             if (filesToCombine.Count > 1)
             {
                 PdfDocument outputDocument = new PdfDocument();
-                string tempFile = Path.Combine(Path.GetTempPath(), "temp.pdf");
+                string temp = Path.Combine(Path.GetTempPath(), "temp.pdf");
 
                 foreach (FileModel file in filesToCombine)
                 {
@@ -288,11 +288,11 @@ namespace CombinePDF
                     }
                 }
 
-                outputDocument.Save(tempFile);
+                outputDocument.Save(temp);
 
                 frmPreview preview = new frmPreview();
                 preview.Owner = Application.Current.MainWindow;
-                UriBuilder uriBuilder = new UriBuilder(tempFile);
+                UriBuilder uriBuilder = new UriBuilder(temp);
                 preview.pdfViewer.Source = uriBuilder.Uri;
                 preview.Show(); 
             }

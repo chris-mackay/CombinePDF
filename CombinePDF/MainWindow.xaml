@@ -8,46 +8,19 @@
         Title="Combine PDF" 
         SizeToContent="WidthAndHeight"
         ResizeMode="CanResizeWithGrip"
-        MinWidth="600"
+        MinWidth="800"
         MinHeight="600" 
         WindowStartupLocation="CenterScreen" 
         Icon="/combine_pdf.ico">
-    
-    <Grid Margin="15">
+
+    <Grid Margin="10">
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="5*"/>
-            <RowDefinition Height="25"/>
-        </Grid.RowDefinitions>
-
-        <Grid Grid.Row="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="75"/>
-                <ColumnDefinition Width="5*"/>
-                <ColumnDefinition Width="75"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-        </Grid>
-
-        <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0 0 0 10">
-            <Button x:Name="btnAddFile" Click="btnAdd_Click" Content="Add File" Width="75" Height="25" Margin="0 0 10 0"/>
-            <Button x:Name="btnRemoveFile" Click="btnRemove_Click" Content="Remove File" Width="75" Height="25" Margin="0 0 10 0"/>
-            <Button x:Name="btnDeleteFile" Click="btnDelete_Click" Content="Delete File" Width="75" Height="25" Margin="0 0 10 0"/>
-            <Button x:Name="btnExtract" Click="btnExtract_Click" Content="Extract" Width="75" Height="25" Margin="0 0 10 0"/>
-            <Button x:Name="btnRefresh" Click="btnRefresh_Click" Content="Refresh" Width="75" Height="25" Margin="0 0 10 0"/>
-            <Button x:Name="btnPreview" Click="btnPreview_Click" Content="Preview" Width="75" Height="25"/>
-        </StackPanel>
 
         <DataGrid x:Name="dg"
-                  Grid.Row="3"
+                  Grid.Column="0"
                   Margin="0 0 0 10"
                   CanUserResizeRows="False"
                   AutoGenerateColumns="False"
@@ -77,27 +50,21 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <DockPanel Grid.Row="4" Margin="0 0 0 0">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="Auto"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
-
-                <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" Grid.Column="0">
-                    <Button x:Name="btnSettings" Click="btnSettings_Click" Content="Settings" Width="100" Height="25" Margin="0 0 10 0"/>
-                    <Button x:Name="btnMoveDown" Click="btnMoveDown_Click" Content="Move Down" Width="75" Height="25" Margin="0 0 10 0"/>
-                    <Button x:Name="btnMoveUp" Click="btnMoveUp_Click" Content="Move Up" Width="75" Height="25" Margin="0 0 10 0"/>
-                </StackPanel>
-
-                <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" Grid.Column="1" HorizontalAlignment="Right">
-                    <Button x:Name="btnCombine" Click="btnCombine_Click" Content="Combine" Width="75" Height="25" Margin="0 0 10 0"/>
-                    <Button x:Name="btnClose" Click="btnClose_Click" Content="Close" Width="75" Height="25"/>
-                </StackPanel>
-            </Grid>
-        </DockPanel>
+        <Grid Margin="10 0 0 10" 
+              Grid.Column="1">
+            <StackPanel Orientation="Vertical">
+                <Button x:Name="btnAddFile" Click="btnAdd_Click" Content="Add File" Width="Auto" Height="25" Margin="0 0 0 0"/>
+                <Button x:Name="btnRemoveFile" Click="btnRemove_Click" Content="Remove File" Width="Auto" Height="25" Margin="0 10 0 0"/>
+                <Button x:Name="btnDeleteFile" Click="btnDelete_Click" Content="Delete File" Width="Auto" Height="25" Margin="0 10 0 0"/>
+                <Button x:Name="btnExtract" Click="btnExtract_Click" Content="Extract" Width="Auto" Height="25" Margin="0 10 0 0"/>
+                <Button x:Name="btnRefresh" Click="btnRefresh_Click" Content="Refresh" Width="Auto" Height="25" Margin="0 10 0 0"/>
+                <Button x:Name="btnPreview" Click="btnPreview_Click" Content="Preview" Width="Auto" Height="25" Margin="0 10 0 0"/>
+                <Button x:Name="btnMoveUp" Click="btnMoveUp_Click" Content="Move Up" Width="Auto" Height="25" Margin="0 40 0 0"/>
+                <Button x:Name="btnMoveDown" Click="btnMoveDown_Click" Content="Move Down" Width="Auto" Height="25" Margin="0 10 0 0"/>
+                <Button x:Name="btnSettings" Click="btnSettings_Click" Content="Settings" Width="Auto" Height="25" Margin="0 40 0 0"/>
+                <Button x:Name="btnCombine" Click="btnCombine_Click" Content="Combine" Width="Auto" Height="25" Margin="0 10 0 0"/>
+                <Button x:Name="btnClose" Click="btnClose_Click" Content="Close" Width="Auto" Height="25" Margin="0 10 0 0"/>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Window>

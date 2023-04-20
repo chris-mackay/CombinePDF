@@ -271,6 +271,33 @@ namespace CombinePDF
             dg.ItemsSource = filesToCombine;
         }
 
+        private void btnViewSelected_Click(object sender, RoutedEventArgs e)
+        {
+            List<FileModel> files = dg.SelectedItems.Cast<FileModel>().ToList();
+
+            if (files.Count > 0 && files.Count < 2)
+            {
+                frmPreview preview = new frmPreview();
+                preview.Owner = Application.Current.MainWindow;
+                preview.Title = files[0].Filename;
+
+                UriBuilder uriBuilder = new UriBuilder(files[0].Filename);
+                preview.pdfViewer.Source = uriBuilder.Uri;
+
+                preview.ShowDialog(); 
+            }
+            else
+            {
+                TaskDialog td = new TaskDialog();
+                td.StartupLocation = TaskDialogStartupLocation.CenterOwner;
+                td.Caption = "Combine PDF";
+                td.StandardButtons = TaskDialogStandardButtons.Ok;
+                td.InstructionText = "Select a single file";
+                td.Text = "Files can only be viewed one at a time";
+                td.Show();
+            }
+        }
+
         private void btnPreview_Click(object sender, RoutedEventArgs e)
         {
             if (filesToCombine.Count > 1)
@@ -299,7 +326,7 @@ namespace CombinePDF
                 UriBuilder uriBuilder = new UriBuilder(temp);
                 preview.pdfViewer.Source = uriBuilder.Uri;
 
-                preview.Show();
+                preview.ShowDialog();
             }
             else
             {
@@ -517,5 +544,6 @@ namespace CombinePDF
         }
 
         #endregion
+
     }
 }

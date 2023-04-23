@@ -9,7 +9,7 @@ AppPublisher=Christopher Mackay
 AppUpdatesURL=github.com/chris-mackay/CombinePDF/releases/tag/v1.0.1
 DefaultDirName={userdocs}\Christopher Mackay\CombinePDF
 DefaultGroupName=CombinePDF
-OutputDir=C:\Users\cmack\source\repos\CombinePDF
+OutputDir=.
 OutputBaseFilename=Setup
 Compression=lzma
 SolidCompression=yes
@@ -24,8 +24,8 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}";
 
 [Files]
-Source: "C:\Users\cmack\source\repos\CombinePDF\CombinePDF\bin\Release\CombinePDF.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\cmack\source\repos\CombinePDF\CombinePDF\bin\Release\*.dll"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs
+Source: "CombinePDF\bin\Release\CombinePDF.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "CombinePDF\bin\Release\*.dll"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs
 
 [Icons]
 Name: "{group}\CombinePDF"; Filename: "{app}\CombinePDF.exe"

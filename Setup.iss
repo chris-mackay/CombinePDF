@@ -15,13 +15,14 @@ Compression=lzma
 SolidCompression=yes
 UninstallDisplayIcon={app}\CombinePDF.exe
 DisableDirPage=yes
-PrivilegesRequired=admin
+PrivilegesRequired=lowest
+DisableProgramGroupPage=yes
+DisableStartupPrompt=yes
+DisableWelcomePage=yes
+DisableReadyPage=yes
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
-
-[Tasks]
-Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}";
 
 [Files]
 Source: "CombinePDF\bin\Release\CombinePDF.exe"; DestDir: "{app}"; Flags: ignoreversion
@@ -29,10 +30,6 @@ Source: "CombinePDF\bin\Release\*.dll"; DestDir: "{app}"; Flags: ignoreversion r
 
 [Icons]
 Name: "{group}\CombinePDF"; Filename: "{app}\CombinePDF.exe"
-Name: "{commondesktop}\CombinePDF"; Filename: "{app}\CombinePDF.exe"; Tasks: desktopicon
-
-[Run]
-Filename: "{app}\CombinePDF.exe"; Description: "{cm:LaunchProgram,CombinePDF}"; Flags: nowait postinstall skipifsilent
 
 [UninstallDelete]
 Type: filesandordirs; Name: "{localappdata}\Christopher Mackay"

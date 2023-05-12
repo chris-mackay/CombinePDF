@@ -20,6 +20,8 @@ DisableProgramGroupPage=yes
 DisableStartupPrompt=yes
 DisableWelcomePage=yes
 DisableReadyPage=yes
+WizardSmallImageFile=setupicon.bmp
+WizardImageFile=bannericon.bmp
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"

@@ -553,7 +553,7 @@ namespace CombinePDF
             td.Controls.Add(commandLink_Send);
 
             td.Caption = "Combine PDF";
-            td.InstructionText = "Version 2.0.1";
+            td.InstructionText = "Version 2.0.0";
             td.Text = "Visit the GitHub repository below.";
             td.Icon = TaskDialogStandardIcon.Information;
             td.StandardButtons = TaskDialogStandardButtons.Close;

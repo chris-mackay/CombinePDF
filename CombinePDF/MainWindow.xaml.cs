@@ -8,7 +8,6 @@ using System.Diagnostics;
 using System.Text;
 using System.Linq;
 using System;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace CombinePDF
 {

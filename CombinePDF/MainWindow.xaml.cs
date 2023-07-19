@@ -8,6 +8,7 @@ using System.Diagnostics;
 using System.Text;
 using System.Linq;
 using System;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace CombinePDF
 {
@@ -543,7 +544,27 @@ namespace CombinePDF
             settings.ShowDialog();
         }
 
-        #endregion
+        private void btnAbout_Click(object sender, RoutedEventArgs e)
+        {
+            TaskDialog td = new TaskDialog();
 
+            TaskDialogCommandLink commandLink_Send = new TaskDialogCommandLink("buttonGithub", "GitHub");
+            commandLink_Send.Click += new EventHandler(commandLink_Github_Click);
+            td.Controls.Add(commandLink_Send);
+
+            td.Caption = "Combine PDF";
+            td.InstructionText = "Version 2.0.1";
+            td.Text = "Visit the GitHub repository below.";
+            td.Icon = TaskDialogStandardIcon.Information;
+            td.StandardButtons = TaskDialogStandardButtons.Close;
+            td.Show();
+        }
+
+        private void commandLink_Github_Click(object sender, EventArgs e)
+        {
+            Process.Start(@"https://github.com/chris-mackay/CombinePDF/tree/master");
+        }
+
+        #endregion
     }
 }

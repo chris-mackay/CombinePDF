@@ -69,17 +69,5 @@ namespace CombinePDF
             Properties.Settings.Default.DefaultDirectory = dir;
             Properties.Settings.Default.Save();
         }
-
-        private void txtDirectory_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            string dir = txtDirectory.Text;
-
-            if (Directory.Exists(dir))
-                btnSave.IsEnabled = true;
-            else if (dir == string.Empty)
-                btnSave.IsEnabled = true;
-            else
-                btnSave.IsEnabled = false;
-        }
     }
 }

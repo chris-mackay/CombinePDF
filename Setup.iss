@@ -2,11 +2,11 @@
 AppId={{0dffa03c-fbdf-413b-b15f-0e655d044bfe}
 AppName=Combine PDF
 AppCopyright=Copyright � 2023 Christopher Mackay
-AppVersion=2.0.0
-VersionInfoVersion=2.0.0
+AppVersion=2.0.1
+VersionInfoVersion=2.0.1
 AppVerName=Combine PDF
 AppPublisher=Christopher Mackay
-AppUpdatesURL=github.com/chris-mackay/CombinePDF/releases/tag/v2.0.0
+AppUpdatesURL=github.com/chris-mackay/CombinePDF/releases/tag/v2.0.1
 DefaultDirName={userdocs}\Christopher Mackay\CombinePDF
 DefaultGroupName=CombinePDF
 OutputDir=.

@@ -43,8 +43,7 @@
                      Height="25"
                      VerticalContentAlignment="Center"
                      IsReadOnly="True"
-                     IsEnabled="False"
-                     TextChanged="txtDirectory_TextChanged">
+                     IsEnabled="False">
             </TextBox>
             <Button x:Name="btnBrowse" 
                     Content="Browse"
